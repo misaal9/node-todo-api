@@ -11,7 +11,13 @@ const port = process.env.PORT || 3000;
 
 var app = express();
 
+app.use(express.static(__dirname + '/public'));
+
 app.use(bodyParser.json());
+
+app.get('/', (req, res) => {
+  res.send('This works.');
+});
 
 // create new todo
 app.post('/todos', (req, res) => {
